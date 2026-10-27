@@ -1,109 +1,191 @@
-css
+/* ===== KLEUREN: hier pas je het hele thema aan =====
+   Een variabele gebruik je verderop met var(naam) */
+:root {
+  --gebroken-wit: #faf6ee;   /* Warme achtergrond van de pagina */
+  --crème: #f1e9d8;          /* Iets donkerder, voor vlakken */
+  --salie: #a3b88c;          /* Zachte lichtgroene tint */
+  --groen: #5f7d4e;          /* Middengroen */
+  --bosgroen: #34502f;       /* Donkergroen voor kop en titels */
+  --tekst: #3d3a2e;          /* Warm donkerbruin in plaats van zwart */
+  --accent: #c98a5e;         /* Terracotta, een warm accentje */
+}
+
 /* ===== ALGEMEEN ===== */
 * {
-  box-sizing: border-box;     /* Padding en rand tellen mee in de breedte: voorkomt dat vakken te breed worden */
+  box-sizing: border-box;    /* Rand en padding tellen mee in de breedte */
 }
 
 body {
-  margin: 0;                  /* Haalt de standaard ruimte rond de pagina weg */
-  font-family: Arial, sans-serif; /* Lettertype van de hele site */
+  margin: 0;                 /* Geen ruimte rond de pagina */
+  background-color: var(--gebroken-wit);
+  color: var(--tekst);
+  font-family: Georgia, "Times New Roman", serif; /* Warm lettertype met sierhaakjes */
+  font-size: 20px;           /* Grote, prettig leesbare tekst */
+  line-height: 1.6;          /* Ruimte tussen de regels */
 }
 
-/* ===== KOP (groene balk bovenaan) ===== */
+/* ===== KOP ===== */
 .kop {
-  background-color: #67a64d;  /* Donkergroen */
-  padding: 10px;              /* Ruimte tussen de rand van de balk en het vak erin */
-  border: 1px solid #444;     /* Dunne donkere rand */
+  background-color: var(--bosgroen);
+  color: var(--gebroken-wit);
+  text-align: center;
+  padding: 40px 20px 36px;
+  border-bottom: 6px solid var(--accent); /* Terracotta streepje onder de kop */
 }
 
-.kop-titel {
-  width: 45%;                 /* Het titelvak is ongeveer de helft van de balk breed */
-  min-height: 80px;           /* Minimale hoogte van het vak */
-  padding: 10px;              /* Ruimte tussen de rand en de tekst */
-  border: 1px solid #4a7a35;  /* Iets donkerdere rand zoals in de schets */
-  font-size: 20px;            /* Grootte van de titel */
+.kop h1 {
+  margin: 0;
+  font-size: 46px;           /* Grote titel */
+  letter-spacing: 1px;       /* Iets meer ruimte tussen de letters */
 }
 
-/* ===== PAGINA (zijbalk en inhoud naast elkaar) ===== */
+.kop p {
+  margin: 8px 0 0;
+  font-size: 22px;
+  font-style: italic;        /* Schuine ondertitel */
+  color: var(--salie);
+}
+
+/* ===== PAGINA: zijbalk en inhoud naast elkaar ===== */
 .pagina {
-  display: flex;              /* Zet de kinderen (zijbalk en inhoud) naast elkaar */
-  min-height: 500px;          /* Zorgt dat de pagina niet te klein wordt */
-  margin-top: 2px;            /* Klein stukje ruimte onder de kop */
+  display: flex;             /* Kinderen naast elkaar */
+  gap: 30px;                 /* Ruimte tussen zijbalk en inhoud */
+  max-width: 1100px;         /* Niet breder dan dit op grote schermen */
+  margin: 30px auto;         /* Gecentreerd, met ruimte boven en onder */
+  padding: 0 20px;
 }
 
-/* ===== ZIJBALK (links) ===== */
+/* ===== ZIJBALK ===== */
 .zijbalk {
-  width: 220px;               /* Vaste breedte van de zijbalk */
-  flex-shrink: 0;             /* Zijbalk wordt nooit smaller als de inhoud groot is */
+  width: 270px;              /* Vaste breedte */
+  flex-shrink: 0;            /* Wordt nooit smaller */
 }
 
-/* Het hele uitklapblok (titel + inhoud) */
+/* Elk uitklapblok */
 details {
-  border: 1px solid #444;     /* Rand om het hele blok */
-  margin-bottom: 2px;         /* Klein stukje ruimte tussen de blokken */
+  background-color: var(--crème);
+  border-radius: 14px;       /* Afgeronde hoeken */
+  margin-bottom: 16px;
+  overflow: hidden;          /* Houdt de inhoud binnen de afgeronde hoeken */
+  box-shadow: 0 2px 6px rgba(52, 80, 47, 0.15); /* Zachte schaduw */
 }
 
-/* De groene titelbalk waar je op klikt */
+/* Titelbalk van het uitklapblok */
 summary {
-  background-color: #93c47d;  /* Lichtgroen */
-  padding: 14px 16px;         /* 14px boven/onder, 16px links/rechts */
-  cursor: pointer;            /* Muis wordt een handje: laat zien dat je kunt klikken */
-  list-style: none;           /* Haalt het standaard driehoekje weg */
-  position: relative;         /* Nodig om het pijltje rechts te kunnen plaatsen */
+  background-color: var(--groen);
+  color: var(--gebroken-wit);
+  padding: 16px 20px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;           /* Handje bij de muis */
+  list-style: none;          /* Standaard driehoekje weg */
+  position: relative;
 }
 
 summary::-webkit-details-marker {
-  display: none;              /* Haalt het standaard driehoekje weg in Safari */
+  display: none;             /* Driehoekje weg in Safari */
 }
 
-/* Pijltje rechts in de titelbalk: dicht = pijltje omhoog */
+summary:hover {
+  background-color: var(--bosgroen); /* Donkerder als je er overheen gaat */
+}
+
+/* Pijltje rechts: dicht = omhoog, open = omlaag */
 summary::after {
-  content: "\2227";           /* Teken ∧ (pijltje omhoog) */
-  position: absolute;         /* Vaste plek in de balk */
-  right: 16px;                /* 16px vanaf de rechterrand */
+  content: "\2227";
+  position: absolute;
+  right: 20px;
 }
 
-/* Open = pijltje omlaag, zoals het eerste blok in de schets */
 details[open] summary::after {
-  content: "\2228";           /* Teken ∨ (pijltje omlaag) */
+  content: "\2228";
 }
 
-/* Links in de uitklapvakken */
-.blok-wit a,
-.blok-grijs a {
-  display: block;             /* Elke link krijgt een eigen regel en is overal klikbaar */
-  padding: 10px 16px;         /* Ruimte in elke link */
-  color: black;               /* Tekstkleur */
-  text-decoration: none;      /* Haalt de onderstreping weg */
+/* Inhoud van het uitklapblok */
+.blok {
+  padding: 10px 0;
 }
 
-.blok-wit {
-  background-color: white;    /* Wit vak met de ondertitels */
+.blok p {
+  margin: 0;
+  padding: 10px 20px;
+  font-size: 18px;
 }
 
-.blok-grijs {
-  background-color: #d9d9d9;  /* Grijs vak zoals in de schets */
-  min-height: 250px;          /* Hoog vak, ook als er weinig in staat */
+.blok a {
+  display: block;            /* Hele regel is klikbaar */
+  padding: 12px 20px;
+  color: var(--tekst);
+  text-decoration: none;     /* Geen onderstreping */
 }
 
-/* Muis boven een link: lichte achtergrond */
-.blok-wit a:hover,
-.blok-grijs a:hover {
-  background-color: #cfe2f3;  /* Lichtblauw */
+.blok a:hover {
+  background-color: var(--salie); /* Zacht groen bij hover */
+  color: var(--bosgroen);
 }
 
-/* ===== INHOUD (rechts) ===== */
+/* ===== INHOUD ===== */
 .inhoud {
-  flex: 1;                    /* Neemt alle overgebleven breedte in */
-  margin-left: 2px;           /* Klein stukje ruimte naast de zijbalk */
-  padding: 35px 70px;         /* Ruimte rond de afbeelding */
+  flex: 1;                   /* Vult de rest van de breedte */
   background-color: white;
-  border: 1px solid #444;
+  border-radius: 14px;
+  padding: 36px 44px;
+  box-shadow: 0 2px 6px rgba(52, 80, 47, 0.15);
 }
 
-.inhoud img {
-  width: 100%;                /* Afbeelding vult de breedte van het vak */
-  max-width: 480px;           /* ...maar wordt nooit groter dan 480px */
-  height: auto;               /* Hoogte past zich aan, zodat de verhouding klopt */
-  display: block;             /* Afbeelding op een eigen regel */
+.inhoud h2 {
+  margin-top: 0;
+  color: var(--bosgroen);
+  font-size: 34px;
+}
+
+/* Afbeelding met bijschrift */
+figure {
+  margin: 28px 0 0;
+}
+
+figure img {
+  width: 100%;               /* Vult de breedte van het vak */
+  height: auto;              /* Verhouding blijft kloppen */
+  display: block;
+  border-radius: 12px;       /* Afgeronde hoeken */
+  border: 6px solid var(--crème); /* Lijstje om de foto */
+}
+
+figcaption {
+  margin-top: 10px;
+  font-size: 17px;
+  font-style: italic;
+  color: var(--groen);
+  text-align: center;
+}
+
+/* ===== VOET ===== */
+.voet {
+  background-color: var(--crème);
+  color: var(--bosgroen);
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 17px;
+}
+
+.voet p {
+  margin: 0;
+}
+
+/* ===== TELEFOON: onder 750px staan zijbalk en inhoud onder elkaar ===== */
+@media (max-width: 750px) {
+  .pagina {
+    flex-direction: column;  /* Onder elkaar in plaats van naast elkaar */
+  }
+  .zijbalk {
+    width: 100%;
+  }
+  .kop h1 {
+    font-size: 32px;
+  }
+  .inhoud {
+    padding: 24px;
+  }
 }
