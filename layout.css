@@ -1,27 +1,109 @@
-/* De hele lijst (het menu) */
-ul {
-  list-style-type: none;     /* Haalt de bolletjes weg */
-  margin: 0;                 /* Haalt de buitenruimte weg */
-  padding: 0;                /* Haalt de binnenruimte weg */
-  overflow: hidden;          /* Zorgt dat de balk om alle zwevende items heen blijft staan */
-  background-color: #333;    /* Achtergrondkleur van de menubalk (donkergrijs) */
+css
+/* ===== ALGEMEEN ===== */
+* {
+  box-sizing: border-box;     /* Padding en rand tellen mee in de breedte: voorkomt dat vakken te breed worden */
 }
 
-/* Elk menu-item */
-li {
-  float: left;               /* Zet de items naast elkaar in plaats van onder elkaar */
+body {
+  margin: 0;                  /* Haalt de standaard ruimte rond de pagina weg */
+  font-family: Arial, sans-serif; /* Lettertype van de hele site */
 }
 
-/* De links in het menu */
-li a {
-  display: block;            /* Maakt de hele knop klikbaar, niet alleen de tekst */
-  color: white;              /* Tekstkleur van de link */
-  text-align: center;        /* Tekst in het midden van de knop */
-  padding: 14px 16px;        /* Ruimte in de knop: 14px boven/onder, 16px links/rechts */
-  text-decoration: none;     /* Haalt de onderstreping weg */
+/* ===== KOP (groene balk bovenaan) ===== */
+.kop {
+  background-color: #67a64d;  /* Donkergroen */
+  padding: 10px;              /* Ruimte tussen de rand van de balk en het vak erin */
+  border: 1px solid #444;     /* Dunne donkere rand */
 }
 
-/* Als je met de muis over een link beweegt */
-li a:hover {
-  background-color: #111;    /* Achtergrond wordt bijna zwart */
+.kop-titel {
+  width: 45%;                 /* Het titelvak is ongeveer de helft van de balk breed */
+  min-height: 80px;           /* Minimale hoogte van het vak */
+  padding: 10px;              /* Ruimte tussen de rand en de tekst */
+  border: 1px solid #4a7a35;  /* Iets donkerdere rand zoals in de schets */
+  font-size: 20px;            /* Grootte van de titel */
+}
+
+/* ===== PAGINA (zijbalk en inhoud naast elkaar) ===== */
+.pagina {
+  display: flex;              /* Zet de kinderen (zijbalk en inhoud) naast elkaar */
+  min-height: 500px;          /* Zorgt dat de pagina niet te klein wordt */
+  margin-top: 2px;            /* Klein stukje ruimte onder de kop */
+}
+
+/* ===== ZIJBALK (links) ===== */
+.zijbalk {
+  width: 220px;               /* Vaste breedte van de zijbalk */
+  flex-shrink: 0;             /* Zijbalk wordt nooit smaller als de inhoud groot is */
+}
+
+/* Het hele uitklapblok (titel + inhoud) */
+details {
+  border: 1px solid #444;     /* Rand om het hele blok */
+  margin-bottom: 2px;         /* Klein stukje ruimte tussen de blokken */
+}
+
+/* De groene titelbalk waar je op klikt */
+summary {
+  background-color: #93c47d;  /* Lichtgroen */
+  padding: 14px 16px;         /* 14px boven/onder, 16px links/rechts */
+  cursor: pointer;            /* Muis wordt een handje: laat zien dat je kunt klikken */
+  list-style: none;           /* Haalt het standaard driehoekje weg */
+  position: relative;         /* Nodig om het pijltje rechts te kunnen plaatsen */
+}
+
+summary::-webkit-details-marker {
+  display: none;              /* Haalt het standaard driehoekje weg in Safari */
+}
+
+/* Pijltje rechts in de titelbalk: dicht = pijltje omhoog */
+summary::after {
+  content: "\2227";           /* Teken ∧ (pijltje omhoog) */
+  position: absolute;         /* Vaste plek in de balk */
+  right: 16px;                /* 16px vanaf de rechterrand */
+}
+
+/* Open = pijltje omlaag, zoals het eerste blok in de schets */
+details[open] summary::after {
+  content: "\2228";           /* Teken ∨ (pijltje omlaag) */
+}
+
+/* Links in de uitklapvakken */
+.blok-wit a,
+.blok-grijs a {
+  display: block;             /* Elke link krijgt een eigen regel en is overal klikbaar */
+  padding: 10px 16px;         /* Ruimte in elke link */
+  color: black;               /* Tekstkleur */
+  text-decoration: none;      /* Haalt de onderstreping weg */
+}
+
+.blok-wit {
+  background-color: white;    /* Wit vak met de ondertitels */
+}
+
+.blok-grijs {
+  background-color: #d9d9d9;  /* Grijs vak zoals in de schets */
+  min-height: 250px;          /* Hoog vak, ook als er weinig in staat */
+}
+
+/* Muis boven een link: lichte achtergrond */
+.blok-wit a:hover,
+.blok-grijs a:hover {
+  background-color: #cfe2f3;  /* Lichtblauw */
+}
+
+/* ===== INHOUD (rechts) ===== */
+.inhoud {
+  flex: 1;                    /* Neemt alle overgebleven breedte in */
+  margin-left: 2px;           /* Klein stukje ruimte naast de zijbalk */
+  padding: 35px 70px;         /* Ruimte rond de afbeelding */
+  background-color: white;
+  border: 1px solid #444;
+}
+
+.inhoud img {
+  width: 100%;                /* Afbeelding vult de breedte van het vak */
+  max-width: 480px;           /* ...maar wordt nooit groter dan 480px */
+  height: auto;               /* Hoogte past zich aan, zodat de verhouding klopt */
+  display: block;             /* Afbeelding op een eigen regel */
 }
