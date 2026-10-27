@@ -4,47 +4,135 @@
     <head>
         <title>DE GROTE KOOKWEBSITE</title> <!-- Tekst in het tabblad -->
         <meta charset="utf-8"> <!-- Speciale tekens goed tonen -->
-        <link rel="stylesheet" type="text/css" href="opmaak.css"> <!-- Koppeling naar het CSS-bestand -->
+
+        <!-- Koppeling naar het losse CSS-bestand. Naam moet EXACT kloppen -->
+        <link rel="stylesheet" type="text/css" href="opmaak.css">
+
+        <!-- Tijdelijke opmaak direct in de pagina, zodat het zeker werkt.
+             Zodra opmaak.css werkt, kun je dit hele <style>-blok weghalen -->
+        <style>
+            /* ===== ALGEMEEN ===== */
+            * { box-sizing: border-box; }   /* Padding en rand tellen mee in de breedte */
+            body {
+                margin: 0;                  /* Geen ruimte rond de pagina */
+                font-family: Arial, sans-serif; /* Lettertype van de hele site */
+                font-size: 20px;            /* Standaard tekstgrootte (groter dan normaal) */
+            }
+
+            /* ===== KOP (groene balk bovenaan) ===== */
+            .kop {
+                background-color: #67a64d;  /* Donkergroen */
+                padding: 14px;              /* Ruimte tussen rand en vak erin */
+                border: 2px solid #444;     /* Donkere rand */
+            }
+            .kop-titel {
+                width: 50%;                 /* Titelvak is de helft van de balk breed */
+                min-height: 100px;          /* Minimale hoogte */
+                padding: 14px;              /* Ruimte tussen rand en tekst */
+                border: 2px solid #4a7a35;  /* Iets donkerdere rand */
+                font-size: 36px;            /* Grote titel */
+                font-weight: bold;          /* Vetgedrukt */
+                color: white;               /* Witte tekst */
+            }
+
+            /* ===== PAGINA: zijbalk en inhoud naast elkaar ===== */
+            .pagina {
+                display: flex;              /* Kinderen naast elkaar */
+                min-height: 600px;          /* Pagina niet te klein */
+                margin-top: 4px;            /* Beetje ruimte onder de kop */
+            }
+
+            /* ===== ZIJBALK ===== */
+            .zijbalk {
+                width: 280px;               /* Breedte van de zijbalk */
+                flex-shrink: 0;             /* Wordt nooit smaller */
+            }
+            details {
+                border: 2px solid #444;     /* Rand om het blok */
+                margin-bottom: 4px;         /* Ruimte tussen de blokken */
+            }
+            summary {
+                background-color: #93c47d;  /* Lichtgroen */
+                padding: 18px 20px;         /* Ruimte in de titelbalk */
+                font-size: 24px;            /* Grotere titel */
+                font-weight: bold;
+                cursor: pointer;            /* Handje bij de muis */
+                list-style: none;           /* Standaard driehoekje weg */
+                position: relative;         /* Voor het pijltje rechts */
+            }
+            summary::-webkit-details-marker { display: none; } /* Driehoekje weg in Safari */
+            summary::after {
+                content: "\2227";           /* Pijltje omhoog (dicht) */
+                position: absolute;
+                right: 20px;
+            }
+            details[open] summary::after {
+                content: "\2228";           /* Pijltje omlaag (open) */
+            }
+            .blok-wit a, .blok-grijs a {
+                display: block;             /* Elke link op een eigen regel */
+                padding: 14px 20px;         /* Ruimte in de link */
+                color: black;
+                text-decoration: none;      /* Geen onderstreping */
+                font-size: 20px;
+            }
+            .blok-wit { background-color: white; }
+            .blok-grijs { background-color: #d9d9d9; min-height: 300px; }
+            .blok-wit a:hover, .blok-grijs a:hover { background-color: #cfe2f3; } /* Lichtblauw bij hover */
+
+            /* ===== INHOUD ===== */
+            .inhoud {
+                flex: 1;                    /* Vult de rest van de breedte */
+                margin-left: 4px;
+                padding: 40px 80px;         /* Ruimte rond de afbeelding */
+                background-color: white;
+                border: 2px solid #444;
+            }
+            .inhoud img {
+                width: 100%;
+                max-width: 560px;           /* Afbeelding maximaal 560px breed */
+                height: auto;               /* Verhouding blijft kloppen */
+                display: block;
+            }
+        </style>
     </head>
     <body>
 
-        <!-- KOP: de grote groene balk bovenaan met de titel -->
+        <!-- KOP: grote groene balk met de titel -->
         <div class="kop">
-            <div class="kop-titel">DE GROTE KOOKWEBSITE</div> <!-- Het vak met 'titel' uit de schets -->
+            <div class="kop-titel">DE GROTE KOOKWEBSITE</div>
         </div>
 
-        <!-- PAGINA: bevat de zijbalk (links) en de inhoud (rechts) naast elkaar -->
+        <!-- PAGINA: zijbalk links, inhoud rechts -->
         <div class="pagina">
 
-            <!-- ZIJBALK: het menu links met twee uitklapblokken -->
             <div class="zijbalk">
 
-                <!-- Uitklapblok 1: 'open' zorgt dat het standaard openstaat -->
+                <!-- Blok 1: 'open' = standaard uitgeklapt -->
                 <details open>
-                    <summary>Onderwerpen</summary> <!-- De groene balk met titel en pijltje; hierop klik je -->
-                    <div class="blok-wit"> <!-- Het witte vak met de ondertitels -->
-                        <a href="binairstelsel.html">Binair stelsel</a> <!-- Ondertitel 1 -->
-                        <a href="kleurmodel.html">Kleurmodellen</a> <!-- Ondertitel 2 -->
+                    <summary>Onderwerpen</summary>
+                    <div class="blok-wit">
+                        <a href="binairstelsel.html">Binair stelsel</a>
+                        <a href="kleurmodel.html">Kleurmodellen</a>
                     </div>
                 </details>
 
-                <!-- Uitklapblok 2: staat standaard dicht (geen 'open') -->
+                <!-- Blok 2: standaard dicht -->
                 <details>
                     <summary>Over mij</summary>
-                    <div class="blok-grijs"> <!-- Het grijze vak uit de schets -->
+                    <div class="blok-grijs">
                         <a href="index.html">Home</a>
                     </div>
                 </details>
 
-            </div> <!-- Einde zijbalk -->
+            </div>
 
-            <!-- INHOUD: het grote witte vak rechts met de afbeelding -->
+            <!-- INHOUD: wit vak met de afbeelding. Let op de hoofdletter in Chefkok.jpg -->
             <div class="inhoud">
-                <!-- Afbeelding: de naam moet exact kloppen met het geuploade bestand (let op hoofdletters) -->
                 <img src="Chefkok.jpg" alt="chefkok">
             </div>
 
-        </div> <!-- Einde pagina -->
+        </div>
 
     </body>
 </html>
