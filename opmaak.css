@@ -1,0 +1,191 @@
+/* ===== KLEUREN: hier pas je het hele thema aan =====
+   Een variabele gebruik je verderop met var(naam) */
+:root {
+  --gebroken-wit: #faf6ee;   /* Warme achtergrond van de pagina */
+  --crème: #f1e9d8;          /* Iets donkerder, voor vlakken */
+  --salie: #a3b88c;          /* Zachte lichtgroene tint */
+  --groen: #5f7d4e;          /* Middengroen */
+  --bosgroen: #34502f;       /* Donkergroen voor kop en titels */
+  --tekst: #3d3a2e;          /* Warm donkerbruin in plaats van zwart */
+  --accent: #c98a5e;         /* Terracotta, een warm accentje */
+}
+
+/* ===== ALGEMEEN ===== */
+* {
+  box-sizing: border-box;    /* Rand en padding tellen mee in de breedte */
+}
+
+body {
+  margin: 0;                 /* Geen ruimte rond de pagina */
+  background-color: var(--gebroken-wit);
+  color: var(--tekst);
+  font-family: Georgia, "Times New Roman", serif; /* Warm lettertype met sierhaakjes */
+  font-size: 20px;           /* Grote, prettig leesbare tekst */
+  line-height: 1.6;          /* Ruimte tussen de regels */
+}
+
+/* ===== KOP ===== */
+.kop {
+  background-color: var(--bosgroen);
+  color: var(--gebroken-wit);
+  text-align: center;
+  padding: 40px 20px 36px;
+  border-bottom: 6px solid var(--accent); /* Terracotta streepje onder de kop */
+}
+
+.kop h1 {
+  margin: 0;
+  font-size: 46px;           /* Grote titel */
+  letter-spacing: 1px;       /* Iets meer ruimte tussen de letters */
+}
+
+.kop p {
+  margin: 8px 0 0;
+  font-size: 22px;
+  font-style: italic;        /* Schuine ondertitel */
+  color: var(--salie);
+}
+
+/* ===== PAGINA: zijbalk en inhoud naast elkaar ===== */
+.pagina {
+  display: flex;             /* Kinderen naast elkaar */
+  gap: 30px;                 /* Ruimte tussen zijbalk en inhoud */
+  max-width: 1100px;         /* Niet breder dan dit op grote schermen */
+  margin: 30px auto;         /* Gecentreerd, met ruimte boven en onder */
+  padding: 0 20px;
+}
+
+/* ===== ZIJBALK ===== */
+.zijbalk {
+  width: 270px;              /* Vaste breedte */
+  flex-shrink: 0;            /* Wordt nooit smaller */
+}
+
+/* Elk uitklapblok */
+details {
+  background-color: var(--crème);
+  border-radius: 14px;       /* Afgeronde hoeken */
+  margin-bottom: 16px;
+  overflow: hidden;          /* Houdt de inhoud binnen de afgeronde hoeken */
+  box-shadow: 0 2px 6px rgba(52, 80, 47, 0.15); /* Zachte schaduw */
+}
+
+/* Titelbalk van het uitklapblok */
+summary {
+  background-color: var(--groen);
+  color: var(--gebroken-wit);
+  padding: 16px 20px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;           /* Handje bij de muis */
+  list-style: none;          /* Standaard driehoekje weg */
+  position: relative;
+}
+
+summary::-webkit-details-marker {
+  display: none;             /* Driehoekje weg in Safari */
+}
+
+summary:hover {
+  background-color: var(--bosgroen); /* Donkerder als je er overheen gaat */
+}
+
+/* Pijltje rechts: dicht = omhoog, open = omlaag */
+summary::after {
+  content: "\2227";
+  position: absolute;
+  right: 20px;
+}
+
+details[open] summary::after {
+  content: "\2228";
+}
+
+/* Inhoud van het uitklapblok */
+.blok {
+  padding: 10px 0;
+}
+
+.blok p {
+  margin: 0;
+  padding: 10px 20px;
+  font-size: 18px;
+}
+
+.blok a {
+  display: block;            /* Hele regel is klikbaar */
+  padding: 12px 20px;
+  color: var(--tekst);
+  text-decoration: none;     /* Geen onderstreping */
+}
+
+.blok a:hover {
+  background-color: var(--salie); /* Zacht groen bij hover */
+  color: var(--bosgroen);
+}
+
+/* ===== INHOUD ===== */
+.inhoud {
+  flex: 1;                   /* Vult de rest van de breedte */
+  background-color: white;
+  border-radius: 14px;
+  padding: 36px 44px;
+  box-shadow: 0 2px 6px rgba(52, 80, 47, 0.15);
+}
+
+.inhoud h2 {
+  margin-top: 0;
+  color: var(--bosgroen);
+  font-size: 34px;
+}
+
+/* Afbeelding met bijschrift */
+figure {
+  margin: 28px 0 0;
+}
+
+figure img {
+  width: 100%;               /* Vult de breedte van het vak */
+  height: auto;              /* Verhouding blijft kloppen */
+  display: block;
+  border-radius: 12px;       /* Afgeronde hoeken */
+  border: 6px solid var(--crème); /* Lijstje om de foto */
+}
+
+figcaption {
+  margin-top: 10px;
+  font-size: 17px;
+  font-style: italic;
+  color: var(--groen);
+  text-align: center;
+}
+
+/* ===== VOET ===== */
+.voet {
+  background-color: var(--crème);
+  color: var(--bosgroen);
+  text-align: center;
+  padding: 20px;
+  margin-top: 40px;
+  font-size: 17px;
+}
+
+.voet p {
+  margin: 0;
+}
+
+/* ===== TELEFOON: onder 750px staan zijbalk en inhoud onder elkaar ===== */
+@media (max-width: 750px) {
+  .pagina {
+    flex-direction: column;  /* Onder elkaar in plaats van naast elkaar */
+  }
+  .zijbalk {
+    width: 100%;
+  }
+  .kop h1 {
+    font-size: 32px;
+  }
+  .inhoud {
+    padding: 24px;
+  }
+}
