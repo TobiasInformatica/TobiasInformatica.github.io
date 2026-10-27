@@ -1,21 +1,42 @@
-<!DOCTYPE html> <!-- Zegt tegen de browser dat dit een HTML5-pagina is -->
-<!-- Dit is de pagina met uitleg over kleurmodellen -->
-<html> <!-- Begin van het html-element -->
-    <head> <!-- Informatie over de pagina -->
-        <title>Kleurmodellen</title> <!-- Tekst in het tabblad -->
-        <meta charset="utf-8"> <!-- Zorgt dat speciale tekens goed getoond worden -->
-        <link rel="stylesheet" type="text/css" href="opmaak.css"> <!-- Koppelt het opmaakbestand (CSS) -->
+html
+<!DOCTYPE html>
+<!-- Pagina met uitleg over kleurmodellen -->
+<html>
+    <head>
+        <title>Kleurmodellen</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="opmaak.css">
     </head>
-    <body> <!-- Inhoud van de pagina -->
+    <body>
 
-        <!-- Menu: hetzelfde menu als op elke andere pagina -->
-        <ul>
-            <li><a href="index.html">Home</a></li> <!-- Terug naar de homepage -->
-            <li><a href="binairstelsel.html">Binair stelsel</a></li> <!-- Naar de pagina over het binair stelsel -->
-            <li><a href="kleurmodel.html">Kleurmodellen</a></li> <!-- Deze pagina -->
+        <!-- Hetzelfde menu als op elke pagina -->
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Onderwerpen</a>
+                <ul>
+                    <li><a href="binairstelsel.html">Binair stelsel</a></li>
+                    <li><a href="kleurmodel.html">Kleurmodellen</a>
+                        <ul>
+                            <li><a href="kleurmodel.html#rgb">RGB</a></li>
+                            <li><a href="kleurmodel.html#cmyk">CMYK</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
         </ul>
 
-        Uitleg over kleurmodellen <!-- Tekst op de pagina -->
+        <div class="kader">
+            <p>Uitleg over kleurmodellen</p>
+
+            <!-- id="rgb": hier springt de link uit het menu naartoe -->
+            <p id="rgb">RGB: rood, groen en blauw, gebruikt voor schermen.</p>
+
+            <!-- id="cmyk": hier springt de link uit het menu naartoe -->
+            <p id="cmyk">CMYK: cyaan, magenta, geel en zwart, gebruikt voor drukwerk.</p>
+
+            <!-- Upload eerst kleurenwiel.jpg naar je repository, met exact deze naam -->
+            <img class="foto" src="kleurenwiel.jpg" alt="Kleurenwiel">
+        </div>
 
     </body>
 </html>
