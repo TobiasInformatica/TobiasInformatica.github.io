@@ -1,21 +1,35 @@
-<!DOCTYPE html> <!-- Zegt tegen de browser dat dit een HTML5-pagina is -->
-<!-- Dit is de pagina met uitleg over het binaire stelsel -->
-<html> <!-- Begin van het html-element -->
-    <head> <!-- Informatie over de pagina -->
-        <title>Binair stelsel</title> <!-- Tekst in het tabblad -->
-        <meta charset="utf-8"> <!-- Zorgt dat speciale tekens goed getoond worden -->
-        <link rel="stylesheet" type="text/css" href="opmaak.css"> <!-- Koppelt het opmaakbestand (CSS) -->
+<!DOCTYPE html>
+<!-- Pagina met uitleg over het binaire stelsel -->
+<html>
+    <head>
+        <title>Binair stelsel</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="opmaak.css">
     </head>
-    <body> <!-- Inhoud van de pagina -->
+    <body>
 
-        <!-- Menu: hetzelfde menu als op elke andere pagina -->
-        <ul>
-            <li><a href="index.html">Home</a></li> <!-- Terug naar de homepage -->
-            <li><a href="binairstelsel.html">Binair stelsel</a></li> <!-- Deze pagina -->
-            <li><a href="kleurmodel.html">Kleurmodellen</a></li> <!-- Naar de pagina over kleurmodellen -->
+        <!-- Hetzelfde menu als op elke pagina -->
+        <ul class="menu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#">Onderwerpen</a>
+                <ul>
+                    <li><a href="binairstelsel.html">Binair stelsel</a></li>
+                    <li><a href="kleurmodel.html">Kleurmodellen</a>
+                        <ul>
+                            <li><a href="kleurmodel.html#rgb">RGB</a></li>
+                            <li><a href="kleurmodel.html#cmyk">CMYK</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
         </ul>
 
-        Uitleg over het binaire stelsel <!-- Tekst op de pagina -->
+        <div class="kader"> <!-- Container voor de inhoud -->
+            <p>Uitleg over het binaire stelsel</p> <!-- Paragraaf (block) -->
+
+            <!-- Afbeelding: upload eerst binair.jpg naar je repository, met exact deze naam -->
+            <img class="foto" src="binair.jpg" alt="Voorbeeld van het binaire stelsel">
+        </div>
 
     </body>
 </html>
