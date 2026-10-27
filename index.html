@@ -1,24 +1,50 @@
-<!DOCTYPE html> <!-- Zegt tegen de browser dat dit een HTML5-pagina is -->
-<!-- Dit is de homepage van mijn site (altijd index.html in de hoofdmap) -->
-<html> <!-- Begin van het html-element: alles van de pagina staat hierin -->
-    <head> <!-- Het hoofd: informatie ÓVER de pagina, niet de inhoud zelf -->
-        <title>DE GROTE KOOKWEBSITE</title> <!-- Tekst die in het tabblad van de browser komt -->
-        <meta charset="utf-8"> <!-- Zorgt dat speciale tekens (é, ë, ï) goed getoond worden -->
-        <link rel="stylesheet" type="text/css" href="opmaak.css"> <!-- Koppelt het opmaakbestand (CSS) aan deze pagina -->
+<!DOCTYPE html> <!-- HTML5-pagina -->
+<!-- Dit is de homepage van mijn site, met de layout uit mijn schets -->
+<html>
+    <head>
+        <title>DE GROTE KOOKWEBSITE</title> <!-- Tekst in het tabblad -->
+        <meta charset="utf-8"> <!-- Speciale tekens goed tonen -->
+        <link rel="stylesheet" type="text/css" href="opmaak.css"> <!-- Koppeling naar het CSS-bestand -->
     </head>
-    <body> <!-- De inhoud van de pagina: alles wat de bezoeker ziet -->
+    <body>
 
-        <!-- Menu: een ul (lijst) met li (list items), elk met een a (link) -->
-        <ul>
-            <li><a href="index.html">Home</a></li> <!-- Link naar de homepage -->
-            <li><a href="binairstelsel.html">Binair stelsel</a></li> <!-- Link naar de pagina over het binair stelsel -->
-            <li><a href="kleurmodel.html">Kleurmodellen</a></li> <!-- Link naar de pagina over kleurmodellen -->
-        </ul>
+        <!-- KOP: de grote groene balk bovenaan met de titel -->
+        <div class="kop">
+            <div class="kop-titel">DE GROTE KOOKWEBSITE</div> <!-- Het vak met 'titel' uit de schets -->
+        </div>
 
-        DE GROTE KOOKWEBSITE VAN DE ENIGE ECHTE TOBIAS DEN HOLLANDER <!-- Tekst op de pagina -->
+        <!-- PAGINA: bevat de zijbalk (links) en de inhoud (rechts) naast elkaar -->
+        <div class="pagina">
 
-        <!-- Afbeelding: src = bestandsnaam (moet exact kloppen, ook hoofdletters), alt = tekst als de afbeelding niet laadt -->
-        <img src="Chefkok.jpg" alt="chefkok">
+            <!-- ZIJBALK: het menu links met twee uitklapblokken -->
+            <div class="zijbalk">
 
-    </body> <!-- Einde van de inhoud -->
-</html> <!-- Einde van de pagina -->
+                <!-- Uitklapblok 1: 'open' zorgt dat het standaard openstaat -->
+                <details open>
+                    <summary>Onderwerpen</summary> <!-- De groene balk met titel en pijltje; hierop klik je -->
+                    <div class="blok-wit"> <!-- Het witte vak met de ondertitels -->
+                        <a href="binairstelsel.html">Binair stelsel</a> <!-- Ondertitel 1 -->
+                        <a href="kleurmodel.html">Kleurmodellen</a> <!-- Ondertitel 2 -->
+                    </div>
+                </details>
+
+                <!-- Uitklapblok 2: staat standaard dicht (geen 'open') -->
+                <details>
+                    <summary>Over mij</summary>
+                    <div class="blok-grijs"> <!-- Het grijze vak uit de schets -->
+                        <a href="index.html">Home</a>
+                    </div>
+                </details>
+
+            </div> <!-- Einde zijbalk -->
+
+            <!-- INHOUD: het grote witte vak rechts met de afbeelding -->
+            <div class="inhoud">
+                <!-- Afbeelding: de naam moet exact kloppen met het geuploade bestand (let op hoofdletters) -->
+                <img src="Chefkok.jpg" alt="chefkok">
+            </div>
+
+        </div> <!-- Einde pagina -->
+
+    </body>
+</html>
