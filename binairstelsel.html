@@ -1,35 +1,168 @@
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- HTML5-pagina -->
 <!-- Pagina met uitleg over het binaire stelsel -->
-<html>
+<html lang="nl">
     <head>
-        <title>Binair stelsel</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" type="text/css" href="opmaak.css">
+        <title>Binair stelsel</title> <!-- Tekst in het tabblad -->
+        <meta charset="utf-8"> <!-- Speciale tekens goed tonen -->
+        <meta name="viewport" content="width=device-width, initial-scale=1"> <!-- Past de site aan op telefoons -->
+        <link rel="stylesheet" type="text/css" href="opmaak.css"> <!-- Koppeling naar het opmaakbestand -->
     </head>
     <body>
 
-        <!-- Hetzelfde menu als op elke pagina -->
-        <ul class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Onderwerpen</a>
+        <!-- KOP -->
+        <header class="kop">
+            <h1>De Grote Kookwebsite</h1>
+            <p>van de enige echte Tobias den Hollander</p>
+        </header>
+
+        <div class="pagina">
+
+            <!-- ZIJBALK met het menu -->
+            <nav class="zijbalk">
+                <details open>
+                    <summary>Menu</summary>
+                    <div class="blok">
+                        <a href="index.html">Home</a>
+                        <a href="binairstelsel.html">Binair stelsel</a>
+                        <a href="kleurmodel.html">Kleurmodellen</a>
+                    </div>
+                </details>
+            </nav>
+
+            <!-- INHOUD: de uitleg zelf -->
+            <main class="inhoud">
+
+                <h2>Het binaire stelsel</h2>
+
+                <!-- 1. Wat is het? -->
+                <h3>Wat is het binaire stelsel?</h3>
+                <p>
+                    Het binaire stelsel is een manier om getallen op te schrijven met maar
+                    <strong>twee cijfers: 0 en 1</strong>. Het woord "binair" komt van het Latijnse
+                    <em>bini</em>, dat "twee aan twee" betekent.
+                </p>
+                <p>
+                    Computers gebruiken dit stelsel omdat ze zijn opgebouwd uit minuscule schakelaartjes
+                    (transistors). Zo'n schakelaar staat <strong>uit</strong> (0) of <strong>aan</strong> (1).
+                    Twee toestanden zijn makkelijk en betrouwbaar te maken. Tien verschillende toestanden
+                    zouden veel lastiger zijn.
+                </p>
+
+                <!-- 2. Vergelijk met het tientallig stelsel -->
+                <h3>Vergelijking met het tientallig stelsel</h3>
+                <p>
+                    In het tientallig (decimaal) stelsel, dat wij dagelijks gebruiken, heeft elke plek in een
+                    getal een waarde die 10 keer zo groot is als de plek rechts ervan: 1, 10, 100, 1000, enzovoort.
+                    Het getal <strong>352</strong> betekent dus 3 × 100 + 5 × 10 + 2 × 1.
+                </p>
+                <p>
+                    In het binaire stelsel werkt het precies zo, maar elke plek is <strong>2 keer</strong> zo veel waard
+                    als de plek rechts ervan: 1, 2, 4, 8, 16, 32, 64, 128, enzovoort.
+                </p>
+
+                <!-- Tabel met plaatswaarden -->
+                <h3>De plaatswaarden</h3>
+                <table>
+                    <tr>
+                        <th>Plaatswaarde</th>
+                        <td>128</td><td>64</td><td>32</td><td>16</td><td>8</td><td>4</td><td>2</td><td>1</td>
+                    </tr>
+                    <tr>
+                        <th>Voorbeeld</th>
+                        <td>0</td><td>0</td><td>0</td><td>0</td><td>1</td><td>0</td><td>1</td><td>1</td>
+                    </tr>
+                </table>
+                <p>
+                    Bij het voorbeeld staat een 1 onder de 8, de 2 en de 1. Dus 8 + 2 + 1 = <strong>11</strong>.
+                    Het binaire getal <code>00001011</code> is dus 11.
+                </p>
+
+                <!-- 3. Binair naar decimaal -->
+                <h3>Van binair naar decimaal omrekenen</h3>
+                <ol>
+                    <li>Schrijf boven elk cijfer de plaatswaarde (van rechts: 1, 2, 4, 8, ...).</li>
+                    <li>Kijk waar een 1 staat.</li>
+                    <li>Tel alleen de plaatswaarden op waar een 1 staat.</li>
+                </ol>
+                <div class="voorbeeld">
+                    <strong>Voorbeeld:</strong> <code>1011</code><br>
+                    1 × 8 + 0 × 4 + 1 × 2 + 1 × 1 = 8 + 0 + 2 + 1 = <strong>11</strong>
+                </div>
+
+                <!-- 4. Decimaal naar binair -->
+                <h3>Van decimaal naar binair omrekenen</h3>
+                <p>
+                    Deel het getal steeds door 2 en schrijf de rest op (dat is 0 of 1).
+                    Ga door tot je bij 0 uitkomt. De resten lees je daarna <strong>van onder naar boven</strong>.
+                </p>
+                <div class="voorbeeld">
+                    <strong>Voorbeeld: 13</strong><br>
+                    13 : 2 = 6 rest <strong>1</strong><br>
+                    6 : 2 = 3 rest <strong>0</strong><br>
+                    3 : 2 = 1 rest <strong>1</strong><br>
+                    1 : 2 = 0 rest <strong>1</strong><br>
+                    Van onder naar boven gelezen: <strong>1101</strong>. Controle: 8 + 4 + 0 + 1 = 13.
+                </div>
+
+                <!-- 5. Tabel 0 t/m 10 -->
+                <h3>De getallen 0 tot en met 10</h3>
+                <table>
+                    <tr><th>Decimaal</th><th>Binair</th></tr>
+                    <tr><td>0</td><td>0000</td></tr>
+                    <tr><td>1</td><td>0001</td></tr>
+                    <tr><td>2</td><td>0010</td></tr>
+                    <tr><td>3</td><td>0011</td></tr>
+                    <tr><td>4</td><td>0100</td></tr>
+                    <tr><td>5</td><td>0101</td></tr>
+                    <tr><td>6</td><td>0110</td></tr>
+                    <tr><td>7</td><td>0111</td></tr>
+                    <tr><td>8</td><td>1000</td></tr>
+                    <tr><td>9</td><td>1001</td></tr>
+                    <tr><td>10</td><td>1010</td></tr>
+                </table>
+
+                <!-- 6. Bits en bytes -->
+                <h3>Bits en bytes</h3>
                 <ul>
-                    <li><a href="binairstelsel.html">Binair stelsel</a></li>
-                    <li><a href="kleurmodel.html">Kleurmodellen</a>
-                        <ul>
-                            <li><a href="kleurmodel.html#rgb">RGB</a></li>
-                            <li><a href="kleurmodel.html#cmyk">CMYK</a></li>
-                        </ul>
-                    </li>
+                    <li>Een <strong>bit</strong> is één binair cijfer: een 0 of een 1. Het is de kleinste eenheid in een computer.</li>
+                    <li>Een <strong>byte</strong> is een groepje van 8 bits.</li>
+                    <li>Met 8 bits kun je 2<sup>8</sup> = <strong>256</strong> verschillende waarden maken, van 0 (<code>00000000</code>) tot 255 (<code>11111111</code>).</li>
+                    <li>Met n bits kun je 2<sup>n</sup> verschillende waarden maken.</li>
                 </ul>
-            </li>
-        </ul>
 
-        <div class="kader"> <!-- Container voor de inhoud -->
-            <p>Uitleg over het binaire stelsel</p> <!-- Paragraaf (block) -->
+                <!-- 7. Tekst -->
+                <h3>Hoe slaat een computer tekst op?</h3>
+                <p>
+                    Ook letters zijn getallen. Elke letter krijgt een nummer volgens een afgesproken tabel
+                    (bijvoorbeeld ASCII of Unicode). Dat nummer slaat de computer binair op.
+                    Een hoofdletter A heeft nummer 65. Binair is dat <code>01000001</code>
+                    (64 + 1 = 65). Zo wordt ook een foto, een filmpje of een recept binair opgeslagen: als een lange reeks nullen en enen.
+                </p>
 
-            <!-- Afbeelding: upload eerst binair.jpg naar je repository, met exact deze naam -->
-            <img class="foto" src="binair.jpg" alt="Voorbeeld van het binaire stelsel">
+                <!-- 8. Oefening -->
+                <h3>Probeer het zelf</h3>
+                <ol>
+                    <li>Reken <code>101</code> om naar decimaal.</li>
+                    <li>Reken <code>1111</code> om naar decimaal.</li>
+                    <li>Reken 6 om naar binair.</li>
+                    <li>Reken 20 om naar binair.</li>
+                </ol>
+                <details class="antwoorden">
+                    <summary>Toon de antwoorden</summary>
+                    <div class="blok">
+                        <p>1. 4 + 0 + 1 = <strong>5</strong></p>
+                        <p>2. 8 + 4 + 2 + 1 = <strong>15</strong></p>
+                        <p>3. <strong>110</strong> (4 + 2)</p>
+                        <p>4. <strong>10100</strong> (16 + 4)</p>
+                    </div>
+                </details>
+
+            </main>
         </div>
+
+        <footer class="voet">
+            <p>Gemaakt met liefde en een beetje HTML</p>
+        </footer>
 
     </body>
 </html>

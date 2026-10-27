@@ -1,42 +1,145 @@
-html
-<!DOCTYPE html>
+<!DOCTYPE html> <!-- HTML5-pagina -->
 <!-- Pagina met uitleg over kleurmodellen -->
-<html>
+<html lang="nl">
     <head>
-        <title>Kleurmodellen</title>
+        <title>Kleurmodellen</title> <!-- Tekst in het tabblad -->
         <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" href="opmaak.css">
     </head>
     <body>
 
-        <!-- Hetzelfde menu als op elke pagina -->
-        <ul class="menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#">Onderwerpen</a>
+        <header class="kop">
+            <h1>De Grote Kookwebsite</h1>
+            <p>van de enige echte Tobias den Hollander</p>
+        </header>
+
+        <div class="pagina">
+
+            <nav class="zijbalk">
+                <details open>
+                    <summary>Menu</summary>
+                    <div class="blok">
+                        <a href="index.html">Home</a>
+                        <a href="binairstelsel.html">Binair stelsel</a>
+                        <a href="kleurmodel.html">Kleurmodellen</a>
+                    </div>
+                </details>
+            </nav>
+
+            <main class="inhoud">
+
+                <h2>Kleurmodellen</h2>
+
+                <!-- 1. Wat is een kleurmodel? -->
+                <h3>Wat is een kleurmodel?</h3>
+                <p>
+                    Een kleurmodel is een afspraak over hoe je een kleur beschrijft met getallen.
+                    Een computer kan niet "rood" opslaan, maar wel een getal. Verschillende toepassingen
+                    gebruiken verschillende modellen. De bekendste zijn
+                    <strong>RGB</strong> (voor schermen) en <strong>CMYK</strong> (voor drukwerk).
+                </p>
+
+                <!-- 2. RGB -->
+                <h3 id="rgb">RGB: kleuren met licht</h3>
+                <p>
+                    RGB staat voor <strong>R</strong>ed (rood), <strong>G</strong>reen (groen) en
+                    <strong>B</strong>lue (blauw). Een scherm maakt kleuren door lichtjes van deze drie kleuren
+                    samen te laten schijnen. Dit heet een <strong>additief</strong> model: hoe meer licht je
+                    optelt, hoe lichter de kleur wordt. Alle drie op volle sterkte geeft wit, alles uit geeft zwart.
+                </p>
+                <p>
+                    Elke kleur krijgt een waarde van <strong>0 tot en met 255</strong>. Dat is precies wat in één byte past (zie de
+                    <a href="binairstelsel.html">uitleg over het binaire stelsel</a>). Een kleur bestaat dus uit 3 bytes.
+                </p>
+
+                <table>
+                    <tr><th>Kleur</th><th>Voorbeeld</th><th>R</th><th>G</th><th>B</th><th>Hex-code</th></tr>
+                    <tr><td>Rood</td><td><span class="kleurvak" style="background-color:#ff0000"></span></td><td>255</td><td>0</td><td>0</td><td>#FF0000</td></tr>
+                    <tr><td>Groen</td><td><span class="kleurvak" style="background-color:#00ff00"></span></td><td>0</td><td>255</td><td>0</td><td>#00FF00</td></tr>
+                    <tr><td>Blauw</td><td><span class="kleurvak" style="background-color:#0000ff"></span></td><td>0</td><td>0</td><td>255</td><td>#0000FF</td></tr>
+                    <tr><td>Geel (rood + groen)</td><td><span class="kleurvak" style="background-color:#ffff00"></span></td><td>255</td><td>255</td><td>0</td><td>#FFFF00</td></tr>
+                    <tr><td>Cyaan (groen + blauw)</td><td><span class="kleurvak" style="background-color:#00ffff"></span></td><td>0</td><td>255</td><td>255</td><td>#00FFFF</td></tr>
+                    <tr><td>Magenta (rood + blauw)</td><td><span class="kleurvak" style="background-color:#ff00ff"></span></td><td>255</td><td>0</td><td>255</td><td>#FF00FF</td></tr>
+                    <tr><td>Wit</td><td><span class="kleurvak" style="background-color:#ffffff"></span></td><td>255</td><td>255</td><td>255</td><td>#FFFFFF</td></tr>
+                    <tr><td>Zwart</td><td><span class="kleurvak" style="background-color:#000000"></span></td><td>0</td><td>0</td><td>0</td><td>#000000</td></tr>
+                    <tr><td>Saliegroen (uit deze site)</td><td><span class="kleurvak" style="background-color:#a3b88c"></span></td><td>163</td><td>184</td><td>140</td><td>#A3B88C</td></tr>
+                </table>
+
+                <p>
+                    Het aantal mogelijke kleuren is 256 × 256 × 256 = <strong>16.777.216</strong>.
+                    Dat zijn meer kleuren dan het menselijk oog kan onderscheiden. Dit heet ook wel "24-bits kleur"
+                    (3 bytes × 8 bits).
+                </p>
+
+                <!-- 3. Hexadecimaal -->
+                <h3>De hex-code uitgelegd</h3>
+                <p>
+                    Op websites schrijf je kleuren vaak als hex-code, bijvoorbeeld <code>#A3B88C</code>.
+                    Hexadecimaal is een stelsel met 16 cijfers: 0 t/m 9 en daarna A (10), B (11), C (12), D (13), E (14) en F (15).
+                    Met twee hex-cijfers kun je 0 t/m 255 schrijven, dus precies de waarde van één kleur.
+                </p>
+                <div class="voorbeeld">
+                    <strong>#A3B88C</strong> bestaat uit drie paren:<br>
+                    A3 = rood: 10 × 16 + 3 = 163<br>
+                    B8 = groen: 11 × 16 + 8 = 184<br>
+                    8C = blauw: 8 × 16 + 12 = 140<br>
+                    Dat is dus RGB(163, 184, 140).
+                </div>
+
+                <!-- 4. CMYK -->
+                <h3 id="cmyk">CMYK: kleuren met inkt</h3>
+                <p>
+                    CMYK staat voor <strong>C</strong>yan (blauwgroen), <strong>M</strong>agenta (roze-paars),
+                    <strong>Y</strong>ellow (geel) en <strong>K</strong>ey (zwart). Printers gebruiken dit model.
+                    Papier geeft zelf geen licht, maar kaatst licht terug. Elke laag inkt neemt een deel van dat licht weg.
+                    Dit heet een <strong>subtractief</strong> model: hoe meer inkt je gebruikt, hoe donkerder de kleur wordt.
+                </p>
+                <p>
+                    In theorie geven cyaan, magenta en geel samen zwart. In de praktijk wordt dat meer een modderig donkerbruin.
+                    Daarom is er een aparte zwarte inkt (K) bijgekomen. Dat is ook goedkoper en geeft scherpere tekst.
+                    Elke waarde wordt aangegeven als percentage van 0% tot 100%.
+                </p>
+
+                <table>
+                    <tr><th>Kleur</th><th>C</th><th>M</th><th>Y</th><th>K</th></tr>
+                    <tr><td>Cyaan</td><td>100%</td><td>0%</td><td>0%</td><td>0%</td></tr>
+                    <tr><td>Magenta</td><td>0%</td><td>100%</td><td>0%</td><td>0%</td></tr>
+                    <tr><td>Geel</td><td>0%</td><td>0%</td><td>100%</td><td>0%</td></tr>
+                    <tr><td>Zwart</td><td>0%</td><td>0%</td><td>0%</td><td>100%</td></tr>
+                    <tr><td>Wit (geen inkt)</td><td>0%</td><td>0%</td><td>0%</td><td>0%</td></tr>
+                </table>
+
+                <!-- 5. Vergelijking -->
+                <h3>RGB en CMYK vergeleken</h3>
+                <table>
+                    <tr><th></th><th>RGB</th><th>CMYK</th></tr>
+                    <tr><th>Gebruikt voor</th><td>Schermen: telefoon, tv, monitor</td><td>Drukwerk: folders, boeken, posters</td></tr>
+                    <tr><th>Soort mengen</th><td>Additief (licht optellen)</td><td>Subtractief (inkt trekt licht af)</td></tr>
+                    <tr><th>Alles samen</th><td>Wit</td><td>Donker (zwart)</td></tr>
+                    <tr><th>Waarden</th><td>0 t/m 255 per kleur</td><td>0% t/m 100% per inkt</td></tr>
+                    <tr><th>Basiskleuren</th><td>Rood, groen, blauw</td><td>Cyaan, magenta, geel, zwart</td></tr>
+                </table>
+                <p>
+                    Let op: een scherm kan heldere kleuren maken die een printer niet kan namaken.
+                    Een felle neonkleur ziet er op papier daarom vaak doffer uit dan op je scherm.
+                </p>
+
+                <!-- 6. Tip -->
+                <h3>Handig om te weten</h3>
                 <ul>
-                    <li><a href="binairstelsel.html">Binair stelsel</a></li>
-                    <li><a href="kleurmodel.html">Kleurmodellen</a>
-                        <ul>
-                            <li><a href="kleurmodel.html#rgb">RGB</a></li>
-                            <li><a href="kleurmodel.html#cmyk">CMYK</a></li>
-                        </ul>
-                    </li>
+                    <li>Voor een website gebruik je altijd <strong>RGB</strong> (of de hex-code daarvan).</li>
+                    <li>Laat je iets drukken, vraag dan welk kleurmodel de drukker wil. Dat is meestal CMYK.</li>
+                    <li>Een andere manier om kleuren te beschrijven is HSL: tint (kleur), verzadiging (hoe fel) en lichtheid.
+                        Dat is handig als je een kleur een tikje lichter wilt maken.</li>
                 </ul>
-            </li>
-        </ul>
 
-        <div class="kader">
-            <p>Uitleg over kleurmodellen</p>
-
-            <!-- id="rgb": hier springt de link uit het menu naartoe -->
-            <p id="rgb">RGB: rood, groen en blauw, gebruikt voor schermen.</p>
-
-            <!-- id="cmyk": hier springt de link uit het menu naartoe -->
-            <p id="cmyk">CMYK: cyaan, magenta, geel en zwart, gebruikt voor drukwerk.</p>
-
-            <!-- Upload eerst kleurenwiel.jpg naar je repository, met exact deze naam -->
-            <img class="foto" src="kleurenwiel.jpg" alt="Kleurenwiel">
+            </main>
         </div>
+
+        <footer class="voet">
+            <p>Gemaakt met liefde en een beetje HTML</p>
+        </footer>
 
     </body>
 </html>
