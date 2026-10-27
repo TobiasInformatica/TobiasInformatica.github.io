@@ -1,0 +1,27 @@
+/* De hele lijst (het menu) */
+ul {
+  list-style-type: none;     /* Haalt de bolletjes weg */
+  margin: 0;                 /* Haalt de buitenruimte weg */
+  padding: 0;                /* Haalt de binnenruimte weg */
+  overflow: hidden;          /* Zorgt dat de balk om alle zwevende items heen blijft staan */
+  background-color: #333;    /* Achtergrondkleur van de menubalk (donkergrijs) */
+}
+
+/* Elk menu-item */
+li {
+  float: left;               /* Zet de items naast elkaar in plaats van onder elkaar */
+}
+
+/* De links in het menu */
+li a {
+  display: block;            /* Maakt de hele knop klikbaar, niet alleen de tekst */
+  color: white;              /* Tekstkleur van de link */
+  text-align: center;        /* Tekst in het midden van de knop */
+  padding: 14px 16px;        /* Ruimte in de knop: 14px boven/onder, 16px links/rechts */
+  text-decoration: none;     /* Haalt de onderstreping weg */
+}
+
+/* Als je met de muis over een link beweegt */
+li a:hover {
+  background-color: #111;    /* Achtergrond wordt bijna zwart */
+}
